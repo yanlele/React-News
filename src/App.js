@@ -20,7 +20,7 @@ class Index extends Component{
         return(
             <div>
                 <ComponentHeader/>
-                <BodyIndex/>
+                <BodyIndex userId={123456}/>
                 <ComponentFooter/>
             </div>
         )

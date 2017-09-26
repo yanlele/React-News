@@ -19,6 +19,7 @@ export default class BodyIndex extends Component {
             <div>
                 <h2>页面的主体内容</h2>
                 <p>{this.state.username}</p>
+                <p>{this.props.userId}</p>
             </div>
         )
     }
