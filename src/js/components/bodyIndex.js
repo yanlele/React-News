@@ -1,6 +1,18 @@
 import React, {Component} from 'react'
 
 export default class BodyIndex extends Component {
+
+    componentWillMount(){
+        //将要加载
+        console.log('BodyIndex - componentWillMount')
+    }
+
+    componentDidMount(){
+        //加载完成
+        console.log('BodyIndex-componentDidMount')
+    }
+
+
     render() {
         var userName='parry123123';
         var boolInput=false;
