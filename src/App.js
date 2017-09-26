@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import ComponentHeader from './js/components/header'
+import ComponentFooter from './js/components/footer'
+import BodyIndex from './js/components/bodyIndex'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+class Index extends Component{
+    render(){
+        return(
+            <div>
+                <ComponentHeader/>
+                <BodyIndex/>
+                <ComponentFooter/>
+            </div>
+        )
+    }
 }
 
-export default App;
+export default Index;
