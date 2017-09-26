@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 
+
 export default class BodyIndex extends Component {
     constructor() {
         super();//调用父类的所有初始化方法
