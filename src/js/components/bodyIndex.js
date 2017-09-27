@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import BodyChild from './bodyChild'
 
 
 export default class BodyIndex extends Component {
@@ -11,9 +12,15 @@ export default class BodyIndex extends Component {
     }
 
 
-    changeUserInfo() {
+    changeUserInfo(age) {
         this.setState({
-            age:18
+            age:age
+        })
+    }
+
+    handleChildValueChange(event){
+        this.setState({
+            age:event.target.value
         })
     }
 
@@ -30,7 +37,9 @@ export default class BodyIndex extends Component {
             <div>
                 <h2>页面的主体内容</h2>
                 <p>{this.state.username} {this.props.userId} ,age:{this.state.age}</p>
-                <input type="button" value='提交' onClick={this.changeUserInfo.bind(this)}/>
+                <p>age:{this.state.age}</p>
+                <input type="button" value='提交' onClick={this.changeUserInfo.bind(this,99)}/>
+                <BodyChild handleChildValueChange={this.handleChildValueChange.bind(this)}/>
             </div>
         )
     }
