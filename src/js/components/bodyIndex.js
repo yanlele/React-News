@@ -31,7 +31,7 @@ export default class BodyIndex extends Component {
         console.log(this.refs.submitButton);
         this.refs.submitButton.style.color='red';
 
-        MixinLog
+        MixinLog.log();
     }
 
     handleChildValueChange(event){
@@ -52,14 +52,6 @@ export default class BodyIndex extends Component {
     }
 
     render() {
-        /*        setTimeout(() => {
-         //更改state的时候
-         this.setState({
-         username: 'Tom'
-         })
-         }, 4000);*/
-
-        var html = "yanle   &nbsp;&nbsp;&nbsp;&nbsp;   testProject";
         return (
             <div>
                 <h2>页面的主体内容</h2>
