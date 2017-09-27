@@ -1,11 +1,11 @@
 import React,{Component} from 'react'
 
-export default class Header extends Component{
+export default class ComponentFooter extends Component{
     render(){
         return(
-            <header>
-                <h1>这里是页脚，一般放置版权一些信息</h1>
-            </header>
+            <footer>
+                <h1>这里是脚信息，放置版权等东西</h1>
+            </footer>
         )
     }
 }
