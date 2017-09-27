@@ -12,10 +12,10 @@ export default class Root extends React.Component{
             //这里替换替换了之前的index成为了程序的入口
             <Router history={hashHistory}>
                 <Route component={App} path="/"/>
-                <Route component={ComponentList} path="list"/>
+                <Route component={ComponentList} path="/list"/>
             </Router>
         )
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Root />, document.getElementById('root'));
