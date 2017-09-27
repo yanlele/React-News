@@ -6,7 +6,7 @@ export default class ComponentHeader extends Component{
             header:{
                 backgroundColor:'#333333',
                 color:'#fff',
-                'padding-top':'15px',
+                paddingTop:'15px',
                 paddingBottom:'15px'
             },
 
@@ -14,7 +14,7 @@ export default class ComponentHeader extends Component{
         };
 
         return(
-            <header style={styleComponentHeader.header}>
+            <header style={styleComponentHeader.header} className="smallFontSize">
                 <h1>首页header</h1>
             </header>
         )

@@ -31,7 +31,7 @@ export default class BodyIndex extends Component {
         console.log(this.refs.submitButton);
         this.refs.submitButton.style.color='red';
 
-        MixinLog.log();
+        MixinLog
     }
 
     handleChildValueChange(event){
@@ -40,6 +40,11 @@ export default class BodyIndex extends Component {
         })
     }
 
+    changeValue(e){
+        this.setState({
+            age:e.target.value
+        })
+    }
     changeAge(e,age){
         this.setState({
             age:age
@@ -61,11 +66,11 @@ export default class BodyIndex extends Component {
                 <p>{this.state.username} {this.props.userId} ,age:{this.state.age}</p>
                 <p>age:{this.state.age}</p>
                 <input id="submitButton" ref='submitButton' type="button" value='提交' onClick={this.changeUserInfo.bind(this,99)}/>
-                <label htmlFor="input">双向绑定：</label>
-                <input type="text" value={this.state.age} id="input"/>
-
-                {/*双向绑定*/}
                 <BodyChild {...this.props} handleChildValueChange={this.handleChildValueChange.bind(this)}/>
+
+                {/*双向绑定的研究*/}
+                <label htmlFor="">双向绑定</label>
+                <input type="text" onChange={this.changeValue.bind(this)} />
             </div>
         )
     }
