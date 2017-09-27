@@ -28,7 +28,7 @@ export default class ComponentHeader extends Component{
         };
 
         return(
-            <header style={styleComponentHeader.header} className="smallFontSize" onClick={this.switchHeader.bind(this)}>
+            <header style={styleComponentHeader.header} className="smallFontSize">
                 <h1>首页header</h1>
             </header>
         )
