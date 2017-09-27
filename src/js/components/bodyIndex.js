@@ -52,7 +52,7 @@ export default class BodyIndex extends Component {
                 <input type="text" value={this.state.age} id="input"/>
 
                 {/*双向绑定*/}
-                <BodyChild handleChildValueChange={this.handleChildValueChange.bind(this)}/>
+                <BodyChild {...this.props} handleChildValueChange={this.handleChildValueChange.bind(this)}/>
             </div>
         )
     }

@@ -6,6 +6,7 @@ export default class BodyChild extends Component {
         return (
             <div>
                 <p>子页面输入： <input type="text" onChange={this.props.handleChildValueChange}/></p>
+                <p>{this.props.userId} {this.props.username}</p>
             </div>
         )
     }
