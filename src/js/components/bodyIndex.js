@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import BodyChild from './bodyChild'
 
+const defaultProps={
+    username:'这是一个默认的用户名'
+};
 
 export default class BodyIndex extends Component {
     constructor() {
@@ -24,6 +27,12 @@ export default class BodyIndex extends Component {
         })
     }
 
+    changeAge(e,age){
+        this.setState({
+            age:age
+        })
+    }
+
     render() {
         /*        setTimeout(() => {
          //更改state的时候
@@ -39,8 +48,18 @@ export default class BodyIndex extends Component {
                 <p>{this.state.username} {this.props.userId} ,age:{this.state.age}</p>
                 <p>age:{this.state.age}</p>
                 <input type="button" value='提交' onClick={this.changeUserInfo.bind(this,99)}/>
+                <label htmlFor="input">双向绑定：</label>
+                <input type="text" value={this.state.age} id="input"/>
+
+                {/*双向绑定*/}
                 <BodyChild handleChildValueChange={this.handleChildValueChange.bind(this)}/>
             </div>
         )
     }
 }
+
+BodyIndex.propTypes={
+    userId:React.PropTypes.number.isRequired
+};
+
+BodyIndex.defaultProps=defaultProps;
