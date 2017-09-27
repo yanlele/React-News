@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import BodyChild from './bodyChild'
 import ReactDOM from 'react-dom'
 
+import ReactMixin from 'react-mixin'
+import MixinLog from './mixins'
+
 const defaultProps={
     username:'这是一个默认的用户名'
 };
@@ -15,7 +18,6 @@ export default class BodyIndex extends Component {
         };
     }
 
-
     changeUserInfo(age) {
         this.setState({
             age:age
@@ -26,8 +28,10 @@ export default class BodyIndex extends Component {
         // ReactDOM.findDOMNode(mySubmitButton).style.color='red';
 
         //第二种方式：refs操作节点
-        console.log(this.refs.submitButton)
+        console.log(this.refs.submitButton);
         this.refs.submitButton.style.color='red';
+
+        MixinLog.log();
     }
 
     handleChildValueChange(event){
@@ -72,3 +76,5 @@ BodyIndex.propTypes={
 };
 
 BodyIndex.defaultProps=defaultProps;
+
+ReactMixin(BodyIndex.prototype, MixinLog);
