@@ -22,8 +22,12 @@ export default class BodyIndex extends Component {
         });
 
         //第一种方式,reactDom获取原生节点操作
-        var mySubmitButton=document.getElementById('submitButton');
-        ReactDOM.findDOMNode(mySubmitButton).style.color='red';
+        // var mySubmitButton=document.getElementById('submitButton');
+        // ReactDOM.findDOMNode(mySubmitButton).style.color='red';
+
+        //第二种方式：refs操作节点
+        console.log(this.refs.submitButton)
+        this.refs.submitButton.style.color='red';
     }
 
     handleChildValueChange(event){
@@ -52,7 +56,7 @@ export default class BodyIndex extends Component {
                 <h2>页面的主体内容</h2>
                 <p>{this.state.username} {this.props.userId} ,age:{this.state.age}</p>
                 <p>age:{this.state.age}</p>
-                <input id="submitButton" type="button" value='提交' onClick={this.changeUserInfo.bind(this,99)}/>
+                <input id="submitButton" ref='submitButton' type="button" value='提交' onClick={this.changeUserInfo.bind(this,99)}/>
                 <label htmlFor="input">双向绑定：</label>
                 <input type="text" value={this.state.age} id="input"/>
 
