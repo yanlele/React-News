@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import BodyChild from './bodyChild'
+import ReactDOM from 'react-dom'
 
 const defaultProps={
     username:'这是一个默认的用户名'
@@ -18,7 +19,11 @@ export default class BodyIndex extends Component {
     changeUserInfo(age) {
         this.setState({
             age:age
-        })
+        });
+
+        //第一种方式,reactDom获取原生节点操作
+        var mySubmitButton=document.getElementById('submitButton');
+        ReactDOM.findDOMNode(mySubmitButton).style.color='red';
     }
 
     handleChildValueChange(event){
@@ -47,7 +52,7 @@ export default class BodyIndex extends Component {
                 <h2>页面的主体内容</h2>
                 <p>{this.state.username} {this.props.userId} ,age:{this.state.age}</p>
                 <p>age:{this.state.age}</p>
-                <input type="button" value='提交' onClick={this.changeUserInfo.bind(this,99)}/>
+                <input id="submitButton" type="button" value='提交' onClick={this.changeUserInfo.bind(this,99)}/>
                 <label htmlFor="input">双向绑定：</label>
                 <input type="text" value={this.state.age} id="input"/>
 
