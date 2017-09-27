@@ -5,6 +5,9 @@ import ReactDOM from 'react-dom'
 import ReactMixin from 'react-mixin'
 import MixinLog from './mixins'
 
+import { Input } from 'antd';
+import {Button} from 'antd'
+
 const defaultProps={
     username:'这是一个默认的用户名'
 };
@@ -63,6 +66,8 @@ export default class BodyIndex extends Component {
                 {/*双向绑定的研究*/}
                 <label htmlFor="">双向绑定</label>
                 <input type="text" onChange={this.changeValue.bind(this)} />
+                {/*这里是antd上手实践*/}
+                <Input placeholder="Basic usage"/>
             </div>
         )
     }
