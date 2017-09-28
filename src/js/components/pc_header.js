@@ -20,7 +20,7 @@ export default class PCHeader extends React.Component{
     constructor(){
         super();
         this.state={
-            current:'top'
+            current:['top']
         }
     }
 
