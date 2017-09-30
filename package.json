@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "antd": "^2.13.3",
+    "axios": "^0.16.2",
     "babel-plugin-react-html-attrs": "^2.0.0",
     "css-loader": "^0.28.7",
+    "fetch": "^1.1.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-mixin": "^2.0.2",

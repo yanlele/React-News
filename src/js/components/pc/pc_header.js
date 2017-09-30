@@ -16,15 +16,38 @@ const SubMenu = Menu.SubMenu;
 const TabPane = Tabs.TabPane;
 const MenuItemGroup = Menu.ItemGroup;
 
-export default class PCHeader extends React.Component{
+class PCHeader extends React.Component{
     constructor(){
         super();
         this.state={
-            current:['top']
+            current:['top'],
+            modalVisible:false,//是否可见
+            action:'login',
+            hasLogined:false,//是否登录
+            userNickName:'',//用户昵称
+            userid:0
         }
     }
 
     render(){
+        let {getFieldProps}=this.props.form;
+        //根据用户的登录状态显示不同的组件
+        const userShow=this.state.hasLogined?
+            <Menu.Item key="logout" class="register">
+                <Button type='primary' htmlType='button'>{this.state.userNickName}</Button>
+                &nbsp;&nbsp;
+                <link target='_blank'>
+                    <Button type="dashed" htmltype='button'>个人中心</Button>
+                </link>
+                &nbsp;&nbsp;
+                <link target='_blank'>
+                    <Button type="ghost" htmltype='button'>退出</Button>
+                </link>
+            </Menu.Item>
+            :
+            <Menu.Item key="register" className="register">
+                <Icon type="appstore"/>注册/登录
+            </Menu.Item>;
         return(
             <header>
                 <Row>
@@ -62,6 +85,7 @@ export default class PCHeader extends React.Component{
                             <Menu.Item key="shishang">
                                 <Icon type="appstore" />时尚
                             </Menu.Item>
+                            {userShow}
                         </Menu>
                     </Col>
                     <Col span={2}></Col>
@@ -70,3 +94,5 @@ export default class PCHeader extends React.Component{
         )
     }
 }
+
+export default PCHeader=Form.create({})(PCHeader)
