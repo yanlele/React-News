@@ -5,8 +5,8 @@ import MediaQuery from 'react-responsive'
 import {Router,Route,hashHistory} from 'react-router'
 
 /*导入路由*/
-import PCIndex from '../components/pc_index'
-import MobileIndex from '../components/mobile_index'
+import PCIndex from '../components/pc/pc_index'
+import MobileIndex from '../components/mobile/mobile_index'
 
 
 export default class Root extends React.Component{
