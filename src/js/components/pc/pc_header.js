@@ -29,6 +29,33 @@ class PCHeader extends React.Component {
         }
     }
 
+    /*是否显示模态框的方法*/
+    setModalVisible(value){
+        this.setState({
+            modalVisible:value
+        })
+    };
+
+    /*导航栏点击*/
+    handleClick(e){
+        if(e.key='register'){
+            this.setState({
+                current:'register'
+            });
+            this.setModalVisible(true)
+        }else{
+            this.setState({
+                current:e.key
+            })
+        }
+    };
+
+    /*页面提交的方法*/
+    handleSubmit(e){
+        //页面开始想后端提交数据
+
+    }
+
     render() {
         let {getFieldProps} = this.props.form;
         //根据用户的登录状态显示不同的组件
@@ -63,7 +90,7 @@ class PCHeader extends React.Component {
                         <Menu
                             mode="horizontal"
                             selectedKeys={this.state.current}
-                            onclick={this.handleClick.bind(this)}>
+                            onClick={this.handleClick.bind(this)}>
 
                             <Menu.Item key="top">
                                 <Icon type="appstore"/>头条
