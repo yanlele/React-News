@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^2.13.3",
+    "antd": "^2.1.0",
     "axios": "^0.16.2",
     "babel-plugin-react-html-attrs": "^2.0.0",
     "css-loader": "^0.28.7",

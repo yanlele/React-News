@@ -20,7 +20,7 @@ class PCHeader extends React.Component {
     constructor() {
         super();
         this.state = {
-            current: ['top'],
+            current: 'top',
             modalVisible: false,//是否可见
             action: 'login',
             hasLogined: false,//是否登录
@@ -30,30 +30,49 @@ class PCHeader extends React.Component {
     }
 
     /*是否显示模态框的方法*/
-    setModalVisible(value){
+    setModalVisible(value) {
         this.setState({
-            modalVisible:value
+            modalVisible: value
         })
     };
 
     /*导航栏点击*/
-    handleClick(e){
-        if(e.key='register'){
+    handleClick(e) {
+        if (e.key = 'register') {
             this.setState({
-                current:'register'
+                current: 'register'
             });
             this.setModalVisible(true)
-        }else{
+        } else {
             this.setState({
-                current:e.key
+                current: e.key
             })
         }
     };
 
     /*页面提交的方法*/
-    handleSubmit(e){
+    handleSubmit(e) {
         //页面开始想后端提交数据
+        e.preventDefault();
+        var myFetchOptions = {
+            method: 'GET'
+        };
+        var formData = this.props.form.getFieldsValue();
+        console.log(formData);
 
+        fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=" + this.state.action
+            + "&username=" + formData.userName + "&password=" + formData.password
+            + "&r_userName=" + formData.r_userName + "&r_password="
+            + formData.r_password + "&r_confirmPassword="
+            + formData.r_confirmPassword, myFetchOptions).then(res => res.json())
+            .then(json=>{
+                this.setState({
+                    userNickName:json.NickUserName,
+                    userid:json.UserId
+                })
+            });
+        message.success("请求成功");
+        this.setModalVisible(false);
     }
 
     render() {
@@ -89,7 +108,7 @@ class PCHeader extends React.Component {
                         {/*放置导航*/}
                         <Menu
                             mode="horizontal"
-                            selectedKeys={this.state.current}
+                            selectedKeys={[this.state.current]}
                             onClick={this.handleClick.bind(this)}>
 
                             <Menu.Item key="top">
@@ -129,14 +148,14 @@ class PCHeader extends React.Component {
                         >
                             <Tabs type="card">
                                 <TabPane tab="注册" key="2">
-                                    <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
-                                        <FormItem label='账户'>
+                                    <Form layout="horizontal" onSubmit={this.handleSubmit.bind(this)}>
+                                        <FormItem label="账户">
                                             <Input placeholder="请输入您的账号" {...getFieldProps('r_userName')}/>
                                         </FormItem>
-                                        <FormItem label='密码'>
+                                        <FormItem label="密码">
                                             <Input type="password" placeholder="请输入您的密码" {...getFieldProps('r_password')}/>
                                         </FormItem>
-                                        <FormItem label='确认密码'>
+                                        <FormItem label="确认密码">
                                             <Input type="password" placeholder="请再次输入您的密码" {...getFieldProps('r_confirmPassword')}/>
                                         </FormItem>
                                         <Button type="primary" htmlType="submit">注册</Button>
