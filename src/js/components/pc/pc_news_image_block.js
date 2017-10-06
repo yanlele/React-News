@@ -59,7 +59,7 @@ export default class PCNewsImageBlock extends React.Component {
 
         return (
             <div className="topNewsList mt20">
-                <Card title={this.props.cartTitle} border="true" style={{width:this.props.width}}>
+                <Card title={this.props.cartTitle} style={{width:this.props.width}}>
                     {newsList}
                 </Card>
             </div>
