@@ -33,6 +33,7 @@ export default class PCNewsDetails extends React.Component {
     render() {
         return (
             <div>
+                <PCHeader/>
                 <Row>
                     <Col span={2}></Col>
                     <Col span={14} className="container">
@@ -41,6 +42,7 @@ export default class PCNewsDetails extends React.Component {
                     <Col span={6}></Col>
                     <Col span={2}></Col>
                 </Row>
+                <PCFooter/>
             </div>
         )
     }
