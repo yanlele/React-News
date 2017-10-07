@@ -2,7 +2,7 @@ import React from 'react';
 import {Row, Col, BackTop} from 'antd';
 import MobileHeader from './mobile_header';
 import MobileFooter from './mobile_footer';
-// import CommonComments from './common_comments';
+import CommonComments from '../common/comments';
 export default class MobileNewsDetails extends React.Component {
     constructor() {
         super();
@@ -33,8 +33,8 @@ export default class MobileNewsDetails extends React.Component {
                     <Row>
                         <Col span={24} className="container">
                             <div className="articleContainer" dangerouslySetInnerHTML={this.createMarkup()}></div>
-                            {/*<hr/>*/}
-                            {/*<CommonComments uniquekey={this.props.params.uniquekey}/>*/}
+                            <hr/>
+                            <CommonComments uniquekey={this.props.params.uniquekey}/>
                         </Col>
                     </Row>
                     <MobileFooter></MobileFooter>
