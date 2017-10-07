@@ -33,8 +33,8 @@ class CommonComments extends React.Component {
         fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getcomments&uniquekey=" + this.props.uniquekey, myFetchOptions)
             .then(response => response.json())
             .then(json => {
-            this.setState({comments: json});
-        });
+                this.setState({comments: json});
+            });
     };
 
     handleSubmit(e) {
@@ -46,8 +46,8 @@ class CommonComments extends React.Component {
         fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=comment&userid=" + localStorage.userid + "&uniquekey=" + this.props.uniquekey + "&commnet=" + formdata.remark, myFetchOptions)
             .then(response => response.json())
             .then(json => {
-            this.componentDidMount();
-        })
+                this.componentDidMount();
+            })
     };
 
     addUserCollection() {
@@ -57,14 +57,18 @@ class CommonComments extends React.Component {
         fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=uc&userid=" + localStorage.userid + "&uniquekey=" + this.props.uniquekey, myFetchOptions)
             .then(response => response.json())
             .then(json => {
-            //收藏成功以后进行一下全局的提醒
-            notification['success']({message: 'ReactNews提醒', description: '收藏此文章成功'});
-        });
+                //收藏成功以后进行一下全局的提醒
+                notification['success']({message: 'ReactNews提醒', description: '收藏此文章成功'});
+            });
     };
 
     render() {
         let {getFieldProps} = this.props.form;
-        const {comments} = this.state;
+        let {comments} = this.state;
+        // let array=comments.splice(0,10);
+        if(comments.length!=0){
+            comments.length=10;
+        }
         const commnetList = comments.length
             ? comments.map((comment, index) => (
                 <Card key={index} title={comment.UserName} extra={<a href="#"> 发布于 {comment.datetime} </a>}>
