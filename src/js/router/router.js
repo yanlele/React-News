@@ -7,6 +7,7 @@ import {Router,Route,hashHistory} from 'react-router'
 /*导入路由*/
 import PCIndex from '../components/pc/pc_index'
 import MobileIndex from '../components/mobile/mobile_index'
+import PCNewsDetails from '../components/pc/pc_news_details'
 
 
 export default class Root extends React.Component{
@@ -14,7 +15,10 @@ export default class Root extends React.Component{
         return(
             <div>
                 <MediaQuery query="(min-device-width:1224px)">
-                    <PCIndex/>
+                    <Router history={hashHistory}>
+                        <Route path="/" component={PCIndex}/>
+                        <Route path="/details/:uniquekey" component={PCNewsDetails} />
+                    </Router>
                 </MediaQuery>
                 <MediaQuery query="(max-device-width:1224px)">
                     <MobileIndex/>

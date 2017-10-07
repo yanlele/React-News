@@ -3,7 +3,7 @@ import {Row, Col, BackTop} from 'antd';
 import PCHeader from './pc_header';
 import PCFooter from './pc_footer';
 import PCNewsImageBlock from './pc_news_image_block';
-import CommonComments from './common_comments';
+// import CommonComments from './common_comments';
 export default class PCNewsDetails extends React.Component {
     constructor() {
         super();

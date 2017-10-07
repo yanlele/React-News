@@ -29,8 +29,8 @@ export default class PCNewsBlock extends React.Component {
         let newsList;
         if (news.length) {
             newsList = news.map((newsItem, index) => (
-                <li key={index}>
-                    <Link to={`details/${newsItem.uniqueKey}`} target='_blank'>
+                <li key={index} >
+                    <Link to={`/details/${newsItem.uniquekey}`} target='_blank'>
                         {newsItem.title}
                     </Link>
                 </li>
