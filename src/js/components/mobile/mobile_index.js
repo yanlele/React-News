@@ -6,6 +6,7 @@ import MobileFooter from './mobile_footer'
 import {Tabs, Carousel} from 'antd';
 
 import MobileList from './mobile_list'
+import MobileNewsDetails from './mobile_news_detail'
 const TabPane = Tabs.TabPane;
 
 export default class MobileIndex extends React.Component {
