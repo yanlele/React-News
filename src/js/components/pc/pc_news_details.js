@@ -46,6 +46,7 @@ export default class PCNewsDetails extends React.Component {
                     <Col span={2}></Col>
                 </Row>
                 <PCFooter/>
+                <BackTop/>
             </div>
         )
     }
