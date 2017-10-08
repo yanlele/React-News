@@ -10,6 +10,7 @@ import MobileIndex from '../components/mobile/mobile_index'
 import MobileNewsDetails from '../components/mobile/mobile_news_detail'
 import PCNewsDetails from '../components/pc/pc_news_details'
 import PCUserCenter from '../components/pc/pc_usercenter'
+import MobileUserCenter from '../components/mobile/mobile_usercenter'
 
 
 export default class Root extends React.Component{
@@ -27,6 +28,7 @@ export default class Root extends React.Component{
                     <Router history={hashHistory}>
                         <Route path="/" component={MobileIndex}/>
                         <Route path="/details/:uniquekey" component={MobileNewsDetails} />
+                        <Route path='/usercenter' component={MobileUserCenter}/>
                     </Router>
                 </MediaQuery>
             </div>
