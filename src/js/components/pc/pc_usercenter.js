@@ -82,19 +82,23 @@ export default class PCUserCenter extends React.Component {
                     <Col span={2}></Col>
                     <Col span={20}>
                         <Tabs>
-                            <TabPane tab="我的搜藏" key="1">
+                            <TabPane tab="我的收藏列表" key="1">
                                 <div className="comment">
-                                    <div class="comment">
-                                        <Row>
-                                            <Col span={24}>
-                                                {usercollectionList}
-                                            </Col>
-                                        </Row>
-                                    </div>
+                                    <Row>
+                                        <Col span={24}>
+                                            {usercollectionList}
+                                        </Col>
+                                    </Row>
                                 </div>
                             </TabPane>
-                            <TabPane tab="我的搜评论" key="2">
-
+                            <TabPane tab="我的评论列表" key="2">
+                                <div className="comment">
+                                    <Row>
+                                        <Col span={24}>
+                                            {usercommentsList}
+                                        </Col>
+                                    </Row>
+                                </div>
                             </TabPane>
                             <TabPane tab="头像设置" key="3">
                                 <div className="clearfix">
@@ -102,9 +106,8 @@ export default class PCUserCenter extends React.Component {
                                         <Icon type="plus"/>
                                         <div className="ant-upload-text">上传照片</div>
                                     </Upload>
-                                    <Modal visible={this.state.previewVisible} footer={null}
-                                           onCancel={this.handleCancel}>
-                                        <img src={this.state.previewImage} alt="预览"/>
+                                    <Modal visible ={this.state.previewVisible} footer={null} onCancel={this.handleCancel}>
+                                        <img alt="预览" src={this.state.previewImage}/>
                                     </Modal>
                                 </div>
                             </TabPane>
